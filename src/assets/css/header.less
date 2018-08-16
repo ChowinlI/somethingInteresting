@@ -1,0 +1,41 @@
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, .2);
+  position: relative;
+  font-family: "PingFang Medium";
+  width: 100%;
+  background-color: #f3f7fa;
+  filter: alpha(opacity=90);
+  -moz-opacity: .8;
+  opacity: .8;
+  -khtml-opacity: .8;
+  box-shadow: 0 0 5px 0 #333;
+
+  .nav{
+    //position: fixed;
+    height: 60px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    //z-index: 10;
+
+    .nav-list{
+      display: flex;
+      align-items: center;
+
+      .nav-list-item{
+        padding: 0 .6rem;
+        color: #232425;
+        font-size: 1.6rem;
+        &:not(:last-child){
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+}
