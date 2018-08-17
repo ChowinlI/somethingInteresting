@@ -1,4 +1,4 @@
-<template>
+<template id="about">
     <div>
     </div>
 </template>

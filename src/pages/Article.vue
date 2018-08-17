@@ -1,4 +1,4 @@
-<template>
+<template id="article">
     <div>
     </div>
 </template>
