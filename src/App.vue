@@ -7,7 +7,7 @@
       </transition>
     </div>
     <v-footer class="footer"></v-footer>
-    <canvas id="fireworks" style="position: fixed; left: 0px; top: 0px; z-index: 1; pointer-events: none;"></canvas>
+    <canvas id="fireworks" style="position: fixed; left: 0px; top: 0px; z-index: -1; pointer-events: none;"></canvas>
   </div>
 </template>
 <script>
@@ -53,7 +53,6 @@
       var that = this;
       $(document).click(function (e) {
         e = e || window.event;
-        console.log(e.clientX, e.clientY);
         that.int(e.clientX, e.clientY);
       })
     },
@@ -93,11 +92,6 @@
           this.ctx.clearRect(0, 0, w, h);
           clearRequestTimeout(this.animationId);
         }
-      },
-      runCanvas(e){
-//        e = e || window.event;
-//        int(e.clientX, e.clientY);
-        console.log(e);
       }
     }
   }
