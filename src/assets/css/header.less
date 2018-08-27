@@ -4,7 +4,7 @@ header {
   flex-direction: column;
   background-color: rgba(0, 0, 0, .2);
   position: relative;
-  font-family: "PingFang Medium";
+  font-family: "Microsoft YaHei UI Light";
   width: 100%;
   background-color: #f3f7fa;
   filter: alpha(opacity=90);
@@ -23,19 +23,96 @@ header {
     justify-content: flex-end;
     //z-index: 10;
 
+    .search-wrap{
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+
+      .search-input-wrap{
+        height: 32px;
+        width: 200px;
+        border-bottom: thin solid #f35626;
+        -webkit-animation: hue 60s infinite linear;
+        -o-animation: hue 60s infinite linear;
+        animation: hue 60s infinite linear;
+
+        input{
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          color: #f35626;
+          -webkit-animation: hue 60s infinite linear;
+          -o-animation: hue 60s infinite linear;
+          animation: hue 60s infinite linear;
+        }
+      }
+
+      .search-btn{
+        cursor: pointer;
+        .icon-search{
+          color: #f35626 !important;
+          -webkit-animation: hue 60s infinite linear;
+          -o-animation: hue 60s infinite linear;
+          animation: hue 60s infinite linear;
+        }
+
+      }
+
+
+
+    }
+
     .nav-list{
       display: flex;
       align-items: center;
 
       .nav-list-item{
         padding: 0 .6rem;
-        color: #232425;
         font-size: 1.6rem;
+        color: #202020;
+        cursor: pointer;
+
         &:not(:last-child){
           margin-right: 1rem;
         }
+
+        &:hover{
+          color: #f35626;
+          background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke: 1px transparent; //width color
+          -webkit-animation: hue 60s infinite linear;
+          -o-animation: hue 60s infinite linear;
+          animation: hue 60s infinite linear;
+        }
+
+      }
+
+      .nav-list-item-active{
+        color: #f35626;
+        background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px transparent; //width color
+        -webkit-animation: hue 60s infinite linear;
+        -o-animation: hue 60s infinite linear;
+        animation: hue 60s infinite linear;
       }
     }
   }
 
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }

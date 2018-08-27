@@ -7,35 +7,35 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-@font-face {
-  font-family: "PingFang Regular";
-  src: url('../fonts/PINGFANG_REGULAR.TTF');
-}
-
-@font-face {
-  font-family: "PingFang Light";
-  src: url('../fonts/PINGFANG_LIGHT.TTF');
-}
-
-@font-face {
-  font-family: "PingFang ExtraLight";
-  src: url('../fonts/PINGFANG_EXTRALIGHT.TTF');
-}
-
-@font-face {
-  font-family: "PingFang Medium";
-  src: url('../fonts/PINGFANG_MEDIUM.TTF');
-}
-
-@font-face {
-  font-family: "PingFang Bold";
-  src: url('../fonts/PINGFANG_BOLD.TTF');
-}
-
-@font-face {
-  font-family: "PingFang Heavy";
-  src: url('../fonts/PINGFANG_HEAVY.TTF');
-}
+//@font-face {
+//  font-family: "PingFang Regular";
+//  src: url('../fonts/PINGFANG_REGULAR.TTF');
+//}
+//
+//@font-face {
+//  font-family: "PingFang Light";
+//  src: url('../fonts/PINGFANG_LIGHT.TTF');
+//}
+//
+//@font-face {
+//  font-family: "PingFang ExtraLight";
+//  src: url('../fonts/PINGFANG_EXTRALIGHT.TTF');
+//}
+//
+//@font-face {
+//  font-family: "PingFang Medium";
+//  src: url('../fonts/PINGFANG_MEDIUM.TTF');
+//}
+//
+//@font-face {
+//  font-family: "PingFang Bold";
+//  src: url('../fonts/PINGFANG_BOLD.TTF');
+//}
+//
+//@font-face {
+//  font-family: "PingFang Heavy";
+//  src: url('../fonts/PINGFANG_HEAVY.TTF');
+//}
 
 html{
   -webkit-text-size-adjust: none;
@@ -46,11 +46,10 @@ html{
 body{
   -webkit-font-smoothing: antialiased; /*chrome、safari*/
   -moz-osx-font-smoothing: grayscale; /*firefox*/
-  font-family: "PingFang Regular", '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif;
   color: #404040;
   height: 100%;
 }
-
 
 ul, li, p {
   list-style: none;
@@ -59,4 +58,45 @@ ul, li, p {
 a, a:link, a:visited, a:focus, a:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.fade-enter-active {
+  animation: router-fade .5s;
+}
+
+.fade-leave-active {
+  animation: router-fade .5s reverse;
+}
+
+@keyframes router-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes router-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@-moz-keyframes router-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }

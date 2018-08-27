@@ -54,6 +54,10 @@
       $(document).click(function (e) {
         e = e || window.event;
         that.int(e.clientX, e.clientY);
+      });
+      $(window).resize(function () {
+        that.canvas.width = 2 * window.innerWidth, that.canvas.height = 2 * window.innerHeight, that.canvas.style.width = window.innerWidth + "px", that.canvas.style.height = window.innerHeight + "px", that.canvas.getContext("2d").scale(2, 2)
+        that.ctx = that.canvas.getContext("2d");
       })
     },
     methods: {
@@ -122,6 +126,8 @@
     order: 1;
     display: flex;
     justify-content: center;
+    background: lightyellow;
+    z-index: -2;
   }
 
   #app .main .main-wrapper {

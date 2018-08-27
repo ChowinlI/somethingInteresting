@@ -1,11 +1,11 @@
 <template>
   <header id="header">
     <nav class="nav">
+      <div class="search-wrap"><div class="search-input-wrap"><input type="text" name="search" id="search" value=""></div><div class="search-btn"><i class="iconfont icon-search"></i></div></div>
       <div class="nav-list">
         <template v-for="(item,index) in nav_list">
-          <router-link class="nav-list-item" :to="item.link">{{item.name}}</router-link>
+          <div :class="{ 'nav-list-item':true, 'nav-list-item-active': nav_active==item }" @click="toRouterLink(item)">{{item.name}}</div>
         </template>
-        <div class="nav-list-item"><i class="iconfont icon-search"></i></div>
       </div>
     </nav>
     <canvas id="header-canvas" width="1920" height="60"></canvas>
@@ -21,6 +21,7 @@
     data(){
       return {
         nav_list:[{name:'首页',link:'/home'},{name:'真皮沙发',link:'/roast'},{name:'胡里花哨',link:'/article'},{name:'有点东西',link:'/about'}],
+        nav_active:{name:'首页',link:'/home'},
         canvas: null,
         ctx: null,
         waves: ["rgba(157, 187, 210, 0.2)", "rgba(171, 216, 201, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,222,255, 0.2)"],
@@ -39,7 +40,16 @@
           };
       })();
 
-      this.loop()
+      this.loop();
+      for(var i in this.nav_list){
+        if(this.nav_list[i].link.indexOf(window.location.pathname)>=0){
+          this.nav_active = this.nav_list[i];
+          break;
+        }
+      }
+    },
+    created(){
+
     },
     methods: {
       loop() {
@@ -64,11 +74,17 @@
         }
         //注：帧动画，方法内调用
         requestAnimFrame(this.loop);
+      },
+
+      toRouterLink(item){
+          this.nav_active = item;
+          this.$router.push({path: item.link});
       }
 
     }
   }
 </script>
+
 
 <style>
   @import "../assets/css/header.css";

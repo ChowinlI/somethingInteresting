@@ -1,5 +1,6 @@
 <template id="article">
     <div>
+      这货不是文章页
     </div>
 </template>
 

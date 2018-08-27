@@ -1,4 +1,4 @@
-(function(){ 
+(function(){
 
    var digit=
     [
@@ -143,9 +143,9 @@ if(canvas.getContext){
     //声明canvas的宽高
     var H = 100,W = 700;
     canvas.height = H;
-    canvas.width = W;  
+    canvas.width = W;
     cxt.fillStyle = '#f00';
-    cxt.fillRect(10,10,50,50);        
+    cxt.fillRect(10,10,50,50);
 
     //存储时间数据
     var data = [];
@@ -156,7 +156,7 @@ if(canvas.getContext){
     (function(){
         var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
         //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
-        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);    
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
     })();
 
     /*生成点阵数字*/
@@ -170,7 +170,7 @@ if(canvas.getContext){
                     cxt.fill();
                 }
             }
-        }        
+        }
     }
 
     /*更新时钟*/
@@ -180,7 +180,7 @@ if(canvas.getContext){
         var NewData = [];
         NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
         for(var i = data.length-1; i >=0 ; i--){
-            //时间发生变化 
+            //时间发生变化
             if(NewData[i] !== data[i]){
                 //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
                 changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
@@ -189,7 +189,7 @@ if(canvas.getContext){
         //增加小球
         for(var i = 0; i< changeNumArray.length; i++){
             addBalls.apply(this,changeNumArray[i].split('_'));
-        }    
+        }
         data = NewData.concat();
     }
 
@@ -198,11 +198,11 @@ if(canvas.getContext){
         for(var i = 0; i < balls.length; i++){
             balls[i].stepY += balls[i].disY;
             balls[i].x += balls[i].stepX;
-            balls[i].y += balls[i].stepY;    
+            balls[i].y += balls[i].stepY;
             if(balls[i].x > W + R || balls[i].y > H + R){
                 balls.splice(i,1);
                 i--;
-            }                
+            }
         }
     }
 
@@ -221,10 +221,10 @@ if(canvas.getContext){
                         color:colorArray[Math.floor(Math.random()*colorArray.length)],
                         disY:1
                     };
-                    balls.push(ball);            
+                    balls.push(ball);
                 }
             }
-        }    
+        }
     }
 
     /*渲染*/
@@ -234,14 +234,14 @@ if(canvas.getContext){
         //渲染时钟
         for(var i = 0; i < data.length; i++){
             renderDigit(i,data[i]);
-        }        
+        }
         //渲染小球
         for(var i = 0; i < balls.length; i++){
             cxt.beginPath();
             cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
             cxt.fillStyle = balls[i].color;
             cxt.closePath();
-            cxt.fill();                
+            cxt.fill();
         }
     }
 
@@ -255,9 +255,8 @@ if(canvas.getContext){
         render();
     },50);
 }
-    
+
 })();
 
 
 
- 

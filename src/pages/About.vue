@@ -1,5 +1,6 @@
 <template id="about">
     <div>
+      这货不是关于页
     </div>
 </template>
 
